@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function ToDo({ todo }) {
+export default function ToDo({ todo, deleteToDo }) {
+  function handleOnClick() {
+    deleteToDo(todo.todo);
+  }
   return (
     <li className="ToDo">
-      <button className="ToDo__btn delete">X</button>
+      <button onClick={handleOnClick} className="ToDo__btn delete">
+        X
+      </button>
       <p>{todo.todo}</p>
       <button
         className={`ToDo__btn ${
