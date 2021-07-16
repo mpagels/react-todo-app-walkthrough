@@ -36,11 +36,32 @@ function App() {
     );
     setListOfToDos(filteredListOfTodos);
   }
+
+  function toggleStatusOfTodo(toDoName) {
+    const searchedToDo = listOfToDos.find((todo) => todo.todo === toDoName);
+    searchedToDo.status =
+      searchedToDo.status === "Pending" ? "Done" : "Pending";
+
+    const indexOfSearchedToDo = listOfToDos.findIndex(
+      (todo) => todo.todo === toDoName
+    );
+
+    setListOfToDos([
+      ...listOfToDos.slice(0, indexOfSearchedToDo),
+      searchedToDo,
+      ...listOfToDos.slice(indexOfSearchedToDo + 1),
+    ]);
+  }
+
   return (
     <div className="App">
       <Header addNewTodo={addNewTodo} />
       <main>
-        <ToDoList todos={listOfToDos} deleteToDo={deleteToDo} />
+        <ToDoList
+          todos={listOfToDos}
+          deleteToDo={deleteToDo}
+          toggleStatusOfTodo={toggleStatusOfTodo}
+        />
       </main>
     </div>
   );
