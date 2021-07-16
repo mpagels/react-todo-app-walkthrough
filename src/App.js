@@ -15,6 +15,18 @@ function App() {
           <button>Add Todo</button>
         </form>
       </header>
+      <main>
+        <section>
+          <button>X</button>
+          <p>This is a ToDo</p>
+          <button>Pending</button>
+        </section>
+        <section>
+          <button>X</button>
+          <p>This is a another ToDo</p>
+          <button>Done</button>
+        </section>
+      </main>
     </div>
   );
 }
