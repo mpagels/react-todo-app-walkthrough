@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ToDoList() {
+export default function ToDoList({ todos }) {
   return (
     <ul>
       <li className="ToDo">

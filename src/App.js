@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Header />
       <main>
-        <ToDoList />
+        <ToDoList todos={listOfToDos} />
       </main>
     </div>
   );
