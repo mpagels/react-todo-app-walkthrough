@@ -51,15 +51,17 @@ function App() {
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
-        <ul>
+        <ul className="StatusFilterWrapper">
           <li>
-            <button>All</button>
+            <button className="StatusFilterWrapper__FilterButton">All</button>
           </li>
           <li>
-            <button>Pending</button>
+            <button className="StatusFilterWrapper__FilterButton">
+              Pending
+            </button>
           </li>
           <li>
-            <button>Done</button>
+            <button className="StatusFilterWrapper__FilterButton">Done</button>
           </li>
         </ul>
       </main>

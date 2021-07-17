@@ -69,3 +69,18 @@ main {
   background-color: orangered;
   width: 20px;
 }
+.StatusFilterWrapper {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  width: 400px;
+  justify-content: center;
+}
+
+.StatusFilterWrapper__FilterButton {
+  all: unset;
+  padding: 0.7em;
+  width: 60px;
+  border-radius: 0.8em;
+  margin: 1em;
+}
