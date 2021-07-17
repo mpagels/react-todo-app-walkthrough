@@ -48,6 +48,7 @@ function App() {
     <div className="App">
       <Header addNewTodo={addNewTodo} />
       <main>
+        <StatusFilter setFilterTo={setFilterTo} filter={filter} />
         <ToDoList
           todos={listOfToDos}
           filter={filter}
