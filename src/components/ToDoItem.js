@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import editSymbol from "../assets/svg/edit.svg";
-export default function ToDo({
+import EditToDo from "./EditToDo";
+import ToDo from "./ToDo";
+export default function ToDoItem({
   todo,
   deleteToDo,
   toggleStatusOfTodo,
@@ -33,41 +34,19 @@ export default function ToDo({
   return (
     <li className="ToDo">
       {!isEditMode ? (
-        <>
-          <div className="ToDo__btn--wrapper">
-            <button onClick={handleOnDeleteClick} className="ToDo__btn delete">
-              X
-            </button>
-            <button onClick={handleToggleEditeMode} className="ToDo__btn--edit">
-              <img src={editSymbol} alt="" />
-            </button>
-          </div>
-          <p>{todo.todo}</p>
-          <button
-            onClick={handleOnToggleClick}
-            className={`ToDo__btn ${
-              todo.status === "Pending" ? "pending" : "done"
-            }`}
-          >
-            {todo.status}
-          </button>
-        </>
+        <ToDo
+          handleOnDeleteClick={handleOnDeleteClick}
+          handleOnToggleClick={handleOnToggleClick}
+          handleToggleEditeMode={handleToggleEditeMode}
+          todo={todo}
+        />
       ) : (
-        <div className="ToDo__btn--wrapper">
-          <button onClick={handleToggleEditeMode} className="ToDo__btn delete">
-            X
-          </button>
-          <form onSubmit={handleOnSubmit} className="ToDo__Form">
-            <input
-              className="ToDo__Input"
-              onChange={handleOnInputChange}
-              value={input}
-            />
-            <button type="submit" className="ToDo__btn">
-              Update
-            </button>
-          </form>
-        </div>
+        <EditToDo
+          handleToggleEditeMode={handleToggleEditeMode}
+          handleOnInputChange={handleOnInputChange}
+          handleOnSubmit={handleOnSubmit}
+          input={input}
+        />
       )}
     </li>
   );
