@@ -10,12 +10,14 @@ export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
   }
   return (
     <li className="ToDo">
-      <button onClick={handleOnDeleteClick} className="ToDo__btn delete">
-        X
-      </button>
-      <button className="ToDo__btn--edit">
-        <img src={editSymbol} alt="" />
-      </button>
+      <div className="ToDo__btn--wrapper">
+        <button onClick={handleOnDeleteClick} className="ToDo__btn delete">
+          X
+        </button>
+        <button className="ToDo__btn--edit">
+          <img src={editSymbol} alt="" />
+        </button>
+      </div>
       <p>{todo.todo}</p>
       <button
         onClick={handleOnToggleClick}

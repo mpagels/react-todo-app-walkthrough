@@ -61,6 +61,10 @@ main {
   border-radius: 0.8em;
   width: 80px;
 }
+.ToDo__btn--wrapper {
+  display: flex;
+  align-items: center;
+}
 
 .pending {
   background-color: orange;
