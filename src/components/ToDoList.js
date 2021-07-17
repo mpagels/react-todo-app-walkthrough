@@ -6,16 +6,18 @@ export default function ToDoList({
   filter,
   deleteToDo,
   toggleStatusOfTodo,
+  updateToDoThroughEdit,
 }) {
   return (
     <ul>
       {todos.filter(whichToDoToRender).map((todo) => {
         return (
           <ToDoItem
-            key={todo.todo}
+            key={todo.id}
             todo={todo}
             deleteToDo={deleteToDo}
             toggleStatusOfTodo={toggleStatusOfTodo}
+            updateToDoThroughEdit={updateToDoThroughEdit}
           />
         );
       })}

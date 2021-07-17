@@ -4,9 +4,10 @@ export default function ToDo({
   todo,
   deleteToDo,
   toggleStatusOfTodo,
-export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
+  updateToDoThroughEdit,
 }) {
   const [isEditMode, setIsEditMode] = useState(false);
+  const [input, setInput] = useState(todo.todo);
 
   function handleToggleEditeMode() {
     setIsEditMode((previousState) => !previousState);
@@ -18,6 +19,16 @@ export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
 
   function handleOnToggleClick() {
     toggleStatusOfTodo(todo.todo);
+  }
+
+  function handleOnInputChange(event) {
+    setInput(event.target.value);
+  }
+
+  function handleOnSubmit(event) {
+    event.preventDefault();
+    updateToDoThroughEdit(input, todo.id);
+    setIsEditMode(false);
   }
   return (
     <li className="ToDo">
@@ -46,8 +57,11 @@ export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
           <button onClick={handleToggleEditeMode} className="ToDo__btn delete">
             X
           </button>
+          <form onSubmit={handleOnSubmit} className="ToDo__Form">
             <input
               className="ToDo__Input"
+              onChange={handleOnInputChange}
+              value={input}
             />
             <button type="submit" className="ToDo__btn">
               Update
