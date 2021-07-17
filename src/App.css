@@ -66,6 +66,15 @@ main {
   align-items: center;
 }
 
+.ToDo__Form {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+}
+
+.ToDo__Input {
+  height: 22px;
+}
 .pending {
   background-color: orange;
 }
