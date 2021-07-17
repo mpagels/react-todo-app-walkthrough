@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
+import StatusFilter from "./components/StatusFilter";
 
 function App() {
   const [listOfToDos, setListOfToDos] = useState([]);
@@ -51,19 +52,7 @@ function App() {
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
-        <ul className="StatusFilterWrapper">
-          <li>
-            <button className="StatusFilterWrapper__FilterButton">All</button>
-          </li>
-          <li>
-            <button className="StatusFilterWrapper__FilterButton">
-              Pending
-            </button>
-          </li>
-          <li>
-            <button className="StatusFilterWrapper__FilterButton">Done</button>
-          </li>
-        </ul>
+        <StatusFilter />
       </main>
     </div>
   );
