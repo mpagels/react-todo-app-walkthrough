@@ -53,6 +53,7 @@ function App() {
       <main>
         <ToDoList
           todos={listOfToDos}
+          filter={filter}
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
