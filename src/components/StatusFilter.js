@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function StatusFilter({ setFilterTo }) {
+export default function StatusFilter({ setFilterTo, filter }) {
   function handleOnClick(filterName) {
     setFilterTo(filterName);
   }
@@ -9,7 +9,9 @@ export default function StatusFilter({ setFilterTo }) {
       <li>
         <button
           onClick={() => handleOnClick("all")}
-          className="StatusFilterWrapper__FilterButton"
+          className={`StatusFilterWrapper__FilterButton ${
+            filter === "all" && "--actvite-all"
+          }`}
         >
           All
         </button>
@@ -17,7 +19,9 @@ export default function StatusFilter({ setFilterTo }) {
       <li>
         <button
           onClick={() => handleOnClick("pending")}
-          className="StatusFilterWrapper__FilterButton"
+          className={`StatusFilterWrapper__FilterButton ${
+            filter === "pending" && "--actvite-pending"
+          }`}
         >
           Pending
         </button>
@@ -25,7 +29,9 @@ export default function StatusFilter({ setFilterTo }) {
       <li>
         <button
           onClick={() => handleOnClick("done")}
-          className="StatusFilterWrapper__FilterButton"
+          className={`StatusFilterWrapper__FilterButton ${
+            filter === "done" && "--actvite-done"
+          }`}
         >
           Done
         </button>

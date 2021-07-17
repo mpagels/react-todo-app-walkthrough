@@ -56,7 +56,7 @@ function App() {
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
-        <StatusFilter setFilterTo={setFilterTo} />
+        <StatusFilter setFilterTo={setFilterTo} filter={filter} />
       </main>
     </div>
   );
