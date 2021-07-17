@@ -18,7 +18,7 @@ export default function StatusFilter({ setFilterTo, filter }) {
       </li>
       <li>
         <button
-          onClick={() => handleOnClick("pending")}
+          onClick={() => handleOnClick("Pending")}
           className={`StatusFilterWrapper__FilterButton ${
             filter === "pending" && "--actvite-pending"
           }`}
@@ -28,7 +28,7 @@ export default function StatusFilter({ setFilterTo, filter }) {
       </li>
       <li>
         <button
-          onClick={() => handleOnClick("done")}
+          onClick={() => handleOnClick("Done")}
           className={`StatusFilterWrapper__FilterButton ${
             filter === "done" && "--actvite-done"
           }`}
