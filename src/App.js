@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
@@ -12,6 +13,7 @@ function App() {
     const copyOfListOfTodos = [...listOfToDos];
 
     const newToDoObject = {
+      id: uuidv4(),
       todo: newTodo,
       status: "Pending",
     };
