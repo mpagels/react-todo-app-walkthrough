@@ -51,6 +51,17 @@ function App() {
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
+        <ul>
+          <li>
+            <button>All</button>
+          </li>
+          <li>
+            <button>Pending</button>
+          </li>
+          <li>
+            <button>Done</button>
+          </li>
+        </ul>
       </main>
     </div>
   );
