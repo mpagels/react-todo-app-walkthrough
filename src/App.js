@@ -6,6 +6,7 @@ import StatusFilter from "./components/StatusFilter";
 
 function App() {
   const [listOfToDos, setListOfToDos] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   function addNewTodo(newTodo) {
     const copyOfListOfTodos = [...listOfToDos];
@@ -43,6 +44,9 @@ function App() {
     ]);
   }
 
+  function setFilterTo(newFilter) {
+    setFilter(newFilter);
+  }
   return (
     <div className="App">
       <Header addNewTodo={addNewTodo} />
@@ -52,7 +56,7 @@ function App() {
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
-        <StatusFilter />
+        <StatusFilter setFilterTo={setFilterTo} />
       </main>
     </div>
   );
