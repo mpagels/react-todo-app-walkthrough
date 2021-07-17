@@ -84,3 +84,13 @@ main {
   border-radius: 0.8em;
   margin: 1em;
 }
+
+.--actvite-all {
+  background-color: #809240;
+}
+.--actvite-pending {
+  background-color: orange;
+}
+.--actvite-done {
+  background-color: teal;
+}
