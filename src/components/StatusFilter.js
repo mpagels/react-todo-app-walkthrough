@@ -1,16 +1,34 @@
 import React from "react";
 
-export default function StatusFilter() {
+export default function StatusFilter({ setFilterTo }) {
+  function handleOnClick(filterName) {
+    setFilterTo(filterName);
+  }
   return (
     <ul className="StatusFilterWrapper">
       <li>
-        <button className="StatusFilterWrapper__FilterButton">All</button>
+        <button
+          onClick={() => handleOnClick("all")}
+          className="StatusFilterWrapper__FilterButton"
+        >
+          All
+        </button>
       </li>
       <li>
-        <button className="StatusFilterWrapper__FilterButton">Pending</button>
+        <button
+          onClick={() => handleOnClick("pending")}
+          className="StatusFilterWrapper__FilterButton"
+        >
+          Pending
+        </button>
       </li>
       <li>
-        <button className="StatusFilterWrapper__FilterButton">Done</button>
+        <button
+          onClick={() => handleOnClick("done")}
+          className="StatusFilterWrapper__FilterButton"
+        >
+          Done
+        </button>
       </li>
     </ul>
   );
