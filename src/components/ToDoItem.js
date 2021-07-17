@@ -1,5 +1,5 @@
 import React from "react";
-
+import editSymbol from "../assets/svg/edit.svg";
 export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
   function handleOnDeleteClick() {
     deleteToDo(todo.todo);
@@ -12,6 +12,9 @@ export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
     <li className="ToDo">
       <button onClick={handleOnDeleteClick} className="ToDo__btn delete">
         X
+      </button>
+      <button className="ToDo__btn--edit">
+        <img src={editSymbol} alt="" />
       </button>
       <p>{todo.todo}</p>
       <button

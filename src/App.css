@@ -56,6 +56,11 @@ main {
   border-radius: 0.8em;
   width: 80px;
 }
+.ToDo__btn--edit {
+  all: unset;
+  border-radius: 0.8em;
+  width: 80px;
+}
 
 .pending {
   background-color: orange;
