@@ -17,9 +17,21 @@ const initialTodDos = [
 function App() {
   const [listOfToDos, setListOfToDos] = useState(initialTodDos);
 
+  function addNewTodo(newTodo) {
+    const copyOfListOfTodos = [...listOfToDos];
+
+    const newToDoObject = {
+      todo: newTodo,
+      status: "Pending",
+    };
+
+    copyOfListOfTodos.push(newToDoObject);
+
+    setListOfToDos(copyOfListOfTodos);
+  }
   return (
     <div className="App">
-      <Header />
+      <Header addNewTodo={addNewTodo} />
       <main>
         <ToDoList todos={listOfToDos} />
       </main>

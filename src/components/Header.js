@@ -1,10 +1,22 @@
 import React from "react";
 
-export default function Header() {
+export default function Header({ addNewTodo }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const inputValue = form.addTodo.value;
+
+    if (inputValue !== "") {
+      addNewTodo(inputValue);
+      form.reset();
+    }
+  }
+
   return (
     <header>
       <h1>Martins ToDo App</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           id="addTodo"
           name="addTodo"
