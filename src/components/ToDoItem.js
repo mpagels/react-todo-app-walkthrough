@@ -1,8 +1,12 @@
 import React from "react";
 
-export default function ToDo({ todo, deleteToDo }) {
+export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
   function handleOnClick() {
     deleteToDo(todo.todo);
+  }
+
+  function handleOnToggleClick() {
+    toggleStatusOfTodo(todo.todo);
   }
   return (
     <li className="ToDo">
@@ -11,6 +15,7 @@ export default function ToDo({ todo, deleteToDo }) {
       </button>
       <p>{todo.todo}</p>
       <button
+        onClick={handleOnToggleClick}
         className={`ToDo__btn ${
           todo.status === "Pending" ? "pending" : "done"
         }`}
