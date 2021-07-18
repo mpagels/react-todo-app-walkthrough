@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
+import StatusFilter from "./components/StatusFilter";
 
 function App() {
   const [listOfToDos, setListOfToDos] = useState([]);
+  const [filter, setFilter] = useState("all");
 
   function addNewTodo(newTodo) {
     const copyOfListOfTodos = [...listOfToDos];
@@ -42,15 +44,20 @@ function App() {
     ]);
   }
 
+  function setFilterTo(newFilter) {
+    setFilter(newFilter);
+  }
   return (
     <div className="App">
       <Header addNewTodo={addNewTodo} />
       <main>
         <ToDoList
           todos={listOfToDos}
+          filter={filter}
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
         />
+        <StatusFilter setFilterTo={setFilterTo} filter={filter} />
       </main>
     </div>
   );
