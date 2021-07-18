@@ -29,11 +29,18 @@ function App() {
 
     setListOfToDos(copyOfListOfTodos);
   }
+
+  function deleteToDo(toDoName) {
+    const filteredListOfTodos = listOfToDos.filter(
+      (todo) => todo.todo !== toDoName
+    );
+    setListOfToDos(filteredListOfTodos);
+  }
   return (
     <div className="App">
       <Header addNewTodo={addNewTodo} />
       <main>
-        <ToDoList todos={listOfToDos} />
+        <ToDoList todos={listOfToDos} deleteToDo={deleteToDo} />
       </main>
     </div>
   );
