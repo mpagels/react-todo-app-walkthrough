@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
-  function handleOnClick() {
+  function handleOnDeleteClick() {
     deleteToDo(todo.todo);
   }
 
@@ -10,7 +10,7 @@ export default function ToDo({ todo, deleteToDo, toggleStatusOfTodo }) {
   }
   return (
     <li className="ToDo">
-      <button onClick={handleOnClick} className="ToDo__btn delete">
+      <button onClick={handleOnDeleteClick} className="ToDo__btn delete">
         X
       </button>
       <p>{todo.todo}</p>
