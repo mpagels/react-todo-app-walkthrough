@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
@@ -12,6 +13,7 @@ function App() {
     const copyOfListOfTodos = [...listOfToDos];
 
     const newToDoObject = {
+      id: uuidv4(),
       todo: newTodo,
       status: "Pending",
     };
@@ -44,6 +46,19 @@ function App() {
     ]);
   }
 
+  function updateToDoThroughEdit(newTodoText, id) {
+    const searchedToDo = listOfToDos.find((todo) => todo.id === id);
+    searchedToDo.todo = newTodoText;
+
+    const indexOfSearchedToDo = listOfToDos.findIndex((todo) => todo.id === id);
+
+    setListOfToDos([
+      ...listOfToDos.slice(0, indexOfSearchedToDo),
+      searchedToDo,
+      ...listOfToDos.slice(indexOfSearchedToDo + 1),
+    ]);
+  }
+
   function setFilterTo(newFilter) {
     setFilter(newFilter);
   }
@@ -56,6 +71,7 @@ function App() {
           filter={filter}
           deleteToDo={deleteToDo}
           toggleStatusOfTodo={toggleStatusOfTodo}
+          updateToDoThroughEdit={updateToDoThroughEdit}
         />
         <StatusFilter setFilterTo={setFilterTo} filter={filter} />
       </main>
