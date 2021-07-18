@@ -15,11 +15,11 @@ export default function ToDoItem({
     setInput(todo.todo);
   }
   function handleOnDeleteClick() {
-    deleteToDo(todo.todo);
+    deleteToDo(todo.id);
   }
 
   function handleOnToggleClick() {
-    toggleStatusOfTodo(todo.todo);
+    toggleStatusOfTodo(todo.id);
   }
 
   function handleOnInputChange(event) {

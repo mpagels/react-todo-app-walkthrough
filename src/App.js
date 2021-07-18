@@ -10,53 +10,35 @@ function App() {
   const [filter, setFilter] = useState("All");
 
   function addNewTodo(newTodo) {
-    const copyOfListOfTodos = [...listOfToDos];
-
     const newToDoObject = {
       id: uuidv4(),
       todo: newTodo,
       status: "Pending",
     };
 
-    copyOfListOfTodos.push(newToDoObject);
-
-    setListOfToDos(copyOfListOfTodos);
+    setListOfToDos([...listOfToDos, newToDoObject]);
   }
 
-  function deleteToDo(toDoName) {
-    const filteredListOfTodos = listOfToDos.filter(
-      (todo) => todo.todo !== toDoName
-    );
+  function deleteToDo(id) {
+    const filteredListOfTodos = listOfToDos.filter((todo) => todo.id !== id);
     setListOfToDos(filteredListOfTodos);
   }
 
-  function toggleStatusOfTodo(toDoName) {
-    const searchedToDo = listOfToDos.find((todo) => todo.todo === toDoName);
+  function toggleStatusOfTodo(id) {
+    const searchedToDo = getSearchedTodo(id);
     searchedToDo.status =
       searchedToDo.status === "Pending" ? "Done" : "Pending";
 
-    const indexOfSearchedToDo = listOfToDos.findIndex(
-      (todo) => todo.todo === toDoName
-    );
-
-    setListOfToDos([
-      ...listOfToDos.slice(0, indexOfSearchedToDo),
-      searchedToDo,
-      ...listOfToDos.slice(indexOfSearchedToDo + 1),
-    ]);
+    const indexOfSearchedToDo = getIndexOfTodo(id);
+    saveToDoToState(searchedToDo, indexOfSearchedToDo);
   }
 
   function updateToDoThroughEdit(newTodoText, id) {
-    const searchedToDo = listOfToDos.find((todo) => todo.id === id);
+    const searchedToDo = getSearchedTodo(id);
     searchedToDo.todo = newTodoText;
 
-    const indexOfSearchedToDo = listOfToDos.findIndex((todo) => todo.id === id);
-
-    setListOfToDos([
-      ...listOfToDos.slice(0, indexOfSearchedToDo),
-      searchedToDo,
-      ...listOfToDos.slice(indexOfSearchedToDo + 1),
-    ]);
+    const indexOfSearchedToDo = getIndexOfTodo(id);
+    saveToDoToState(searchedToDo, indexOfSearchedToDo);
   }
 
   function setFilterTo(newFilter) {
@@ -66,6 +48,7 @@ function App() {
     <div className="App">
       <Header addNewTodo={addNewTodo} />
       <main>
+        <StatusFilter setFilterTo={setFilterTo} filter={filter} />
         <ToDoList
           todos={listOfToDos}
           filter={filter}
@@ -73,10 +56,26 @@ function App() {
           toggleStatusOfTodo={toggleStatusOfTodo}
           updateToDoThroughEdit={updateToDoThroughEdit}
         />
-        <StatusFilter setFilterTo={setFilterTo} filter={filter} />
       </main>
     </div>
   );
+
+  // helper function
+  function getSearchedTodo(id) {
+    return listOfToDos.find((todo) => todo.id === id);
+  }
+
+  function getIndexOfTodo(id) {
+    return listOfToDos.findIndex((todo) => todo.id === id);
+  }
+
+  function saveToDoToState(todo, index) {
+    setListOfToDos([
+      ...listOfToDos.slice(0, index),
+      todo,
+      ...listOfToDos.slice(index + 1),
+    ]);
+  }
 }
 
 export default App;
