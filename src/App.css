@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ToDo {
+  display: flex;
+  margin: 20px;
+  width: 400px;
+  justify-content: space-between;
+}
+
+.ToDo__btn {
+  all: unset;
+  padding: 1em;
+  border-radius: 0.8em;
+  width: 80px;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.done {
+  background-color: teal;
+}
+
+.delete {
+  background-color: orangered;
+  width: 20px;
+}

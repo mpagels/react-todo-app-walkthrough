@@ -16,15 +16,15 @@ function App() {
         </form>
       </header>
       <main>
-        <section>
-          <button>X</button>
+        <section className="ToDo">
+          <button className="ToDo__btn delete">X</button>
           <p>This is a ToDo</p>
-          <button>Pending</button>
+          <button className="ToDo__btn pending">Pending</button>
         </section>
-        <section>
-          <button>X</button>
+        <section className="ToDo">
+          <button className="ToDo__btn delete">X</button>
           <p>This is a another ToDo</p>
-          <button>Done</button>
+          <button className="ToDo__btn done">Done</button>
         </section>
       </main>
     </div>
