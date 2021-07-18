@@ -11,7 +11,7 @@ export default function ToDoList({
     <ul>
       {todos
         .filter((todo) => {
-          if (filter === "all") {
+          if (filter === "All") {
             return true;
           } else {
             return todo.status === filter;

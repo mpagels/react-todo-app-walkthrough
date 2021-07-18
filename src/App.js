@@ -6,7 +6,7 @@ import StatusFilter from "./components/StatusFilter";
 
 function App() {
   const [listOfToDos, setListOfToDos] = useState([]);
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("All");
 
   function addNewTodo(newTodo) {
     const copyOfListOfTodos = [...listOfToDos];
