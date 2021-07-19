@@ -1,3 +1,15 @@
+# ToDo App code along
+This repo contains the complete development process of creating a todo app from this exercises [here](https://github.com/namirsab/todoapp-react-exercise/blob/main/EXERCISE.md).
+
+This repo contains branches, which represents the current state of the development. To work through this repo is taking a look at the [pull requests](https://github.com/mpagels/react-todo-app-code-along/pulls). (start at `01-feat/...` and then move up from there).
+I wrote a detailed description in the pull request, why and how I did implement the current feature.
+
+The final app can be visited [here](https://react-todo-app-code-along-qxbm8n5cr-mpagels.vercel.app/)
+
+I would be thrilled if you comment on the pull requests if you have any question or some suggestions for improvement. :-)
+
+Have fun exploring.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
